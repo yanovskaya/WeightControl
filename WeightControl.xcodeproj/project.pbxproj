@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7819C0173920AB416BC3B12F /* Pods_WeightControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CF228EF15B225A7D248E2F /* Pods_WeightControl.framework */; };
 		C41D443220AF6F39006F26F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41D443120AF6F39006F26F5 /* AppDelegate.swift */; };
 		C41D443720AF6F39006F26F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C41D443520AF6F39006F26F5 /* Main.storyboard */; };
 		C41D443920AF6F47006F26F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C41D443820AF6F47006F26F5 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B14C7464E539FC2E42C1A590 /* Pods-WeightControl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeightControl.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeightControl/Pods-WeightControl.release.xcconfig"; sourceTree = "<group>"; };
 		C41D442E20AF6F39006F26F5 /* WeightControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeightControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C41D443120AF6F39006F26F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C41D443620AF6F39006F26F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -26,6 +28,8 @@
 		C43864FD20B9610B00A3E303 /* WeightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightCell.swift; sourceTree = "<group>"; };
 		C43864FE20B9610B00A3E303 /* WeightCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeightCell.xib; sourceTree = "<group>"; };
 		C438650120B9623700A3E303 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		E0CF228EF15B225A7D248E2F /* Pods_WeightControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeightControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC4305E4042577DD0D676672 /* Pods-WeightControl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeightControl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeightControl/Pods-WeightControl.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +37,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7819C0173920AB416BC3B12F /* Pods_WeightControl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A7F9CC5A70309178DC5C1B4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E0CF228EF15B225A7D248E2F /* Pods_WeightControl.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C41D442520AF6F39006F26F5 = {
 			isa = PBXGroup;
 			children = (
 				C41D443020AF6F39006F26F5 /* WeightControl */,
 				C41D442F20AF6F39006F26F5 /* Products */,
+				FA6F82DA2C43B350DB54A495 /* Pods */,
+				1A7F9CC5A70309178DC5C1B4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +85,15 @@
 			path = WeightControl;
 			sourceTree = "<group>";
 		};
+		FA6F82DA2C43B350DB54A495 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EC4305E4042577DD0D676672 /* Pods-WeightControl.debug.xcconfig */,
+				B14C7464E539FC2E42C1A590 /* Pods-WeightControl.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C41D444020AF6F47006F26F5 /* Build configuration list for PBXNativeTarget "WeightControl" */;
 			buildPhases = (
+				94B066DBAB108FEE0493AFF5 /* [CP] Check Pods Manifest.lock */,
 				C41D442A20AF6F39006F26F5 /* Sources */,
 				C41D442B20AF6F39006F26F5 /* Frameworks */,
 				C41D442C20AF6F39006F26F5 /* Resources */,
+				C41C349E20B9688900E15DF2 /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -136,6 +162,41 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		94B066DBAB108FEE0493AFF5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WeightControl-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C41C349E20B9688900E15DF2 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C41D442A20AF6F39006F26F5 /* Sources */ = {
@@ -286,6 +347,7 @@
 		};
 		C41D444120AF6F47006F26F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC4305E4042577DD0D676672 /* Pods-WeightControl.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -295,7 +357,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "-.WeightControl";
+				PRODUCT_BUNDLE_IDENTIFIER = .WeightControl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -304,6 +366,7 @@
 		};
 		C41D444220AF6F47006F26F5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B14C7464E539FC2E42C1A590 /* Pods-WeightControl.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -313,7 +376,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "-.WeightControl";
+				PRODUCT_BUNDLE_IDENTIFIER = .WeightControl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
