@@ -55,7 +55,7 @@ class CollectionViewController: UICollectionViewController {
     }
     
     private func editWeigth(_ newWeight: String, index: Int) {
-        viewModels[index].weight = newWeight
+        viewModels[index].editWeight(with: newWeight)
         collectionView?.reloadData()
     }
     

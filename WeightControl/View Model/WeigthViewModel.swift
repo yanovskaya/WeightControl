@@ -23,4 +23,11 @@ class WeightViewModel {
         date = formatter.string(from: model.date)
         weight = model.weight
     }
+    
+    // MARK: - Public Methods
+    
+    func editWeight(with newWeight: String) {
+        weight = newWeight
+    }
+    
 }
