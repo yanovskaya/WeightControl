@@ -22,7 +22,7 @@ class CollectionViewController: UICollectionViewController {
         static let topEdge: CGFloat = 10
         static let bottomEdge: CGFloat = 15
         static let cellSpacing: CGFloat = 5
-        static let cellHeight: CGFloat = 70
+        static let cellHeight: CGFloat = 64
     }
     
     // MARK: - Private Properties
