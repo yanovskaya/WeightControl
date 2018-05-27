@@ -53,6 +53,44 @@ class CollectionViewController: UICollectionViewController {
         collectionView?.reloadData()
     }
     
+    private func editWeigth(_ newWeight: String, index: Int) {
+        viewModels[index].weight = newWeight
+        collectionView?.reloadData()
+    }
+    
+    private func presentAddWeightAlert() {
+        let alert = UIAlertController(title: "Ваш вес", message: "", preferredStyle: UIAlertControllerStyle.alert)
+        let action = UIAlertAction(title: "Сохранить", style: .default) { _ in
+            if let text = alert.textFields![0].text, text != "" {
+                self.saveNewWeight(text)
+            }
+        }
+        alert.addTextField { textField in
+            textField.placeholder = "45.0"
+            textField.font = UIFont.boldSystemFont(ofSize: 18)
+            textField.textAlignment = .center
+        }
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func presentEditWeightAlert(index: Int) {
+        let oldValue = viewModels[index].weight
+        let alert = UIAlertController(title: "Ваш вес", message: "", preferredStyle: UIAlertControllerStyle.alert)
+        let action = UIAlertAction(title: "Сохранить", style: .default) { _ in
+            if let text = alert.textFields![0].text, text != "", text != oldValue {
+                self.editWeigth(text, index: index)
+            }
+        }
+        alert.addTextField { textField in
+            textField.text = oldValue
+            textField.font = UIFont.boldSystemFont(ofSize: 18)
+            textField.textAlignment = .center
+        }
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+    
     // MARK: UICollectionViewDataSource
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -67,22 +105,34 @@ class CollectionViewController: UICollectionViewController {
         return cell
     }
     
+    // MARK: UICollectionViewDelegate
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        changeCell(row: indexPath.row)
+    }
+    
+    private func changeCell(row: Int) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let editAction = UIAlertAction(title: "Изменить", style: .default) { _ in
+            self.presentEditWeightAlert(index: row)
+        }
+        let deleteAction = UIAlertAction(title: "Удалить", style: .destructive) { _ in
+            self.viewModels.remove(at: row)
+            self.collectionView?.reloadData()
+        }
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel)
+
+        alertController.addAction(editAction)
+        alertController.addAction(deleteAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
     // MARK: - IBAction
     
     @IBAction private func addButtonTapped(_ sender: Any) {
-        let alert = UIAlertController(title: "Ваш вес", message: "", preferredStyle: UIAlertControllerStyle.alert)
-        let action = UIAlertAction(title: "Сохранить", style: .default) { _ in
-            if let text = alert.textFields![0].text, text != "" {
-                self.saveNewWeight(text)
-            }
-        }
-        alert.addTextField { textField in
-            textField.placeholder = "45.0"
-            textField.font = UIFont.boldSystemFont(ofSize: 18)
-            textField.textAlignment = .center
-        }
-        alert.addAction(action)
-        present(alert, animated: true, completion: nil)
+        presentAddWeightAlert()
     }
     
 }

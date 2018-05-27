@@ -13,7 +13,7 @@ class WeightViewModel {
     // MARK: - Public Properties
     
     let date: String
-    let weigth: String
+    var weight: String
     
     // MARK: - Initialization
     
@@ -21,6 +21,6 @@ class WeightViewModel {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy"
         date = formatter.string(from: model.date)
-        weigth = model.weight
+        weight = model.weight
     }
 }

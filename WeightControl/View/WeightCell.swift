@@ -28,10 +28,18 @@ class WeightCell: UICollectionViewCell {
         configureView()
     }
     
+    // MARK: - Prepare for Reuse
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        weightLabel.text = nil
+        dateLabel.text = nil
+    }
+    
     // MARK: - Public Methods
     
     func configure(for viewModel: WeightViewModel) {
-        weightLabel.text = viewModel.weigth
+        weightLabel.text = viewModel.weight
         dateLabel.text = viewModel.date
     }
     
