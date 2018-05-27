@@ -17,6 +17,7 @@
 		C438650220B9623700A3E303 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C438650120B9623700A3E303 /* CollectionViewController.swift */; };
 		C47318D720BB3E1200FA8C0D /* Weight.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47318D620BB3E1200FA8C0D /* Weight.swift */; };
 		C47318D920BB3E5C00FA8C0D /* WeigthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47318D820BB3E5C00FA8C0D /* WeigthViewModel.swift */; };
+		C47318DE20BB6B3200FA8C0D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47318DD20BB6B3200FA8C0D /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		C438650120B9623700A3E303 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		C47318D620BB3E1200FA8C0D /* Weight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weight.swift; sourceTree = "<group>"; };
 		C47318D820BB3E5C00FA8C0D /* WeigthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeigthViewModel.swift; sourceTree = "<group>"; };
+		C47318DD20BB6B3200FA8C0D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E0CF228EF15B225A7D248E2F /* Pods_WeightControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeightControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC4305E4042577DD0D676672 /* Pods-WeightControl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeightControl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeightControl/Pods-WeightControl.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +83,7 @@
 				C47318D220BB3D5500FA8C0D /* View Model */,
 				C47318D320BB3D6100FA8C0D /* View */,
 				C47318D420BB3D6800FA8C0D /* View Controller */,
+				C47318DC20BB6B0000FA8C0D /* Resources */,
 				C47318D520BB3D8900FA8C0D /* Supporting Files */,
 				C41D443520AF6F39006F26F5 /* Main.storyboard */,
 				C41D443120AF6F39006F26F5 /* AppDelegate.swift */,
@@ -124,11 +127,19 @@
 		C47318D520BB3D8900FA8C0D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C41D443A20AF6F47006F26F5 /* LaunchScreen.storyboard */,
-				C41D443820AF6F47006F26F5 /* Assets.xcassets */,
 				C41D443D20AF6F47006F26F5 /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C47318DC20BB6B0000FA8C0D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C47318DD20BB6B3200FA8C0D /* Colors.swift */,
+				C41D443A20AF6F47006F26F5 /* LaunchScreen.storyboard */,
+				C41D443820AF6F47006F26F5 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		FA6F82DA2C43B350DB54A495 /* Pods */ = {
@@ -250,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C47318D920BB3E5C00FA8C0D /* WeigthViewModel.swift in Sources */,
+				C47318DE20BB6B3200FA8C0D /* Colors.swift in Sources */,
 				C438650220B9623700A3E303 /* CollectionViewController.swift in Sources */,
 				C43864FF20B9610B00A3E303 /* WeightCell.swift in Sources */,
 				C41D443220AF6F39006F26F5 /* AppDelegate.swift in Sources */,

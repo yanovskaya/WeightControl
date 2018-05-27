@@ -41,6 +41,7 @@ class CollectionViewController: UICollectionViewController {
 
     private func configureCollectionView() {
         self.collectionView!.register(UINib(nibName: Constants.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: Constants.cellIdentifier)
+        collectionView?.backgroundColor = PaletteColors.blue
         guard let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         flowLayout.itemSize.width = view.frame.width - LayoutConstants.leadingMargin
         flowLayout.itemSize.height = LayoutConstants.cellHeight
