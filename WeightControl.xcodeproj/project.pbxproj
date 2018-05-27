@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		7819C0173920AB416BC3B12F /* Pods_WeightControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CF228EF15B225A7D248E2F /* Pods_WeightControl.framework */; };
 		C41D443220AF6F39006F26F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41D443120AF6F39006F26F5 /* AppDelegate.swift */; };
-		C41D443720AF6F39006F26F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C41D443520AF6F39006F26F5 /* Main.storyboard */; };
 		C41D443920AF6F47006F26F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C41D443820AF6F47006F26F5 /* Assets.xcassets */; };
 		C41D443C20AF6F47006F26F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C41D443A20AF6F47006F26F5 /* LaunchScreen.storyboard */; };
 		C43864FF20B9610B00A3E303 /* WeightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43864FD20B9610B00A3E303 /* WeightCell.swift */; };
@@ -18,13 +17,13 @@
 		C47318D720BB3E1200FA8C0D /* Weight.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47318D620BB3E1200FA8C0D /* Weight.swift */; };
 		C47318D920BB3E5C00FA8C0D /* WeigthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47318D820BB3E5C00FA8C0D /* WeigthViewModel.swift */; };
 		C47318DE20BB6B3200FA8C0D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47318DD20BB6B3200FA8C0D /* Colors.swift */; };
+		C47318E220BB6E7D00FA8C0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C47318E120BB6E7D00FA8C0D /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B14C7464E539FC2E42C1A590 /* Pods-WeightControl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeightControl.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeightControl/Pods-WeightControl.release.xcconfig"; sourceTree = "<group>"; };
 		C41D442E20AF6F39006F26F5 /* WeightControl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeightControl.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C41D443120AF6F39006F26F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C41D443620AF6F39006F26F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C41D443820AF6F47006F26F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C41D443B20AF6F47006F26F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C41D443D20AF6F47006F26F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -34,6 +33,7 @@
 		C47318D620BB3E1200FA8C0D /* Weight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weight.swift; sourceTree = "<group>"; };
 		C47318D820BB3E5C00FA8C0D /* WeigthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeigthViewModel.swift; sourceTree = "<group>"; };
 		C47318DD20BB6B3200FA8C0D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		C47318E120BB6E7D00FA8C0D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E0CF228EF15B225A7D248E2F /* Pods_WeightControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeightControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC4305E4042577DD0D676672 /* Pods-WeightControl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeightControl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeightControl/Pods-WeightControl.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,7 +85,7 @@
 				C47318D420BB3D6800FA8C0D /* View Controller */,
 				C47318DC20BB6B0000FA8C0D /* Resources */,
 				C47318D520BB3D8900FA8C0D /* Supporting Files */,
-				C41D443520AF6F39006F26F5 /* Main.storyboard */,
+				C47318E120BB6E7D00FA8C0D /* Main.storyboard */,
 				C41D443120AF6F39006F26F5 /* AppDelegate.swift */,
 			);
 			path = WeightControl;
@@ -213,8 +213,8 @@
 			files = (
 				C41D443C20AF6F47006F26F5 /* LaunchScreen.storyboard in Resources */,
 				C41D443920AF6F47006F26F5 /* Assets.xcassets in Resources */,
-				C41D443720AF6F39006F26F5 /* Main.storyboard in Resources */,
 				C438650020B9610B00A3E303 /* WeightCell.xib in Resources */,
+				C47318E220BB6E7D00FA8C0D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,14 +272,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C41D443520AF6F39006F26F5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C41D443620AF6F39006F26F5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C41D443A20AF6F47006F26F5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
