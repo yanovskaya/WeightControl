@@ -30,7 +30,11 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="DBD-Jw-aJF">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="eRU-kp-Pod"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="eRU-kp-Pod">
+                            <connections>
+                                <action selector="addButtonTapped:" destination="R7n-R4-I1D" id="3tJ-xr-gVL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P2a-4b-ldv" userLabel="First Responder" sceneMemberID="firstResponder"/>

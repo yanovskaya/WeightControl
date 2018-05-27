@@ -9,6 +9,7 @@
 import Foundation
 
 struct Weight {
-    let weight: Float
+    
+    let weight: String
     let date: Date
 }

@@ -18,11 +18,21 @@ class WeightCell: UICollectionViewCell {
     
     // MARK: - IBOutlets
     
+    @IBOutlet private var weightLabel: UILabel!
+    @IBOutlet private var dateLabel: UILabel!
+    
     // MARK: - View lifecycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
         configureView()
+    }
+    
+    // MARK: - Public Methods
+    
+    func configure(for viewModel: WeightViewModel) {
+        weightLabel.text = viewModel.weigth
+        dateLabel.text = viewModel.date
     }
     
     // MARK: - Private Methods

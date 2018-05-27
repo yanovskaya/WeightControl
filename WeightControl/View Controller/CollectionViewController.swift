@@ -27,7 +27,7 @@ class CollectionViewController: UICollectionViewController {
     
     // MARK: - Private Properties
     
-    private let viewModels = [WeightViewModel]()
+    private var viewModels = [WeightViewModel]()
     
     // MARK: - ViewController lifecycle
 
@@ -46,17 +46,45 @@ class CollectionViewController: UICollectionViewController {
         flowLayout.itemSize.height = LayoutConstants.cellHeight
     }
     
+    private func saveNewWeight(_ weight: String) {
+        let model = Weight(weight: weight, date: Date())
+        let viewModel = WeightViewModel(model: model)
+        viewModels.insert(viewModel, at: 0)
+        collectionView?.reloadData()
+    }
+    
     // MARK: UICollectionViewDataSource
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return viewModels.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath) as? WeightCell else {
+            return WeightCell()
+        }
+        cell.configure(for: viewModels[indexPath.row])
         return cell
     }
-
+    
+    // MARK: - IBAction
+    
+    @IBAction private func addButtonTapped(_ sender: Any) {
+        let alert = UIAlertController(title: "Ваш вес", message: "", preferredStyle: UIAlertControllerStyle.alert)
+        let action = UIAlertAction(title: "Сохранить", style: .default) { _ in
+            if let text = alert.textFields![0].text, text != "" {
+                self.saveNewWeight(text)
+            }
+        }
+        alert.addTextField { textField in
+            textField.placeholder = "45.0"
+            textField.font = UIFont.boldSystemFont(ofSize: 18)
+            textField.textAlignment = .center
+        }
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+    
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
@@ -64,11 +92,7 @@ class CollectionViewController: UICollectionViewController {
 extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        if section == 0 {
-            return UIEdgeInsets(top: LayoutConstants.topEdge, left: 0, bottom: 0, right: 0)
-        } else {
-            return UIEdgeInsets(top: 0, left: 0, bottom: LayoutConstants.bottomEdge, right: 0)
-        }
+        return UIEdgeInsets(top: LayoutConstants.topEdge, left: 0, bottom: LayoutConstants.bottomEdge, right: 0)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

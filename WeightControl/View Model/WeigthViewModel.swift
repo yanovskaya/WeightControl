@@ -21,11 +21,6 @@ class WeightViewModel {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy"
         date = formatter.string(from: model.date)
-        
-        if model.weight.truncatingRemainder(dividingBy: 10) == 0 {
-            weigth = String(Int(model.weight))
-        } else {
-            weigth = String(model.weight)
-        }
+        weigth = model.weight
     }
 }
