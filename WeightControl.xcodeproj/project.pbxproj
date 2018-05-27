@@ -73,16 +73,56 @@
 		C41D443020AF6F39006F26F5 /* WeightControl */ = {
 			isa = PBXGroup;
 			children = (
+				C47318D120BB3D3F00FA8C0D /* Model */,
+				C47318D220BB3D5500FA8C0D /* View Model */,
+				C47318D320BB3D6100FA8C0D /* View */,
+				C47318D420BB3D6800FA8C0D /* View Controller */,
+				C47318D520BB3D8900FA8C0D /* Supporting Files */,
 				C41D443120AF6F39006F26F5 /* AppDelegate.swift */,
-				C41D443520AF6F39006F26F5 /* Main.storyboard */,
-				C41D443820AF6F47006F26F5 /* Assets.xcassets */,
-				C41D443A20AF6F47006F26F5 /* LaunchScreen.storyboard */,
-				C41D443D20AF6F47006F26F5 /* Info.plist */,
-				C43864FD20B9610B00A3E303 /* WeightCell.swift */,
-				C43864FE20B9610B00A3E303 /* WeightCell.xib */,
-				C438650120B9623700A3E303 /* CollectionViewController.swift */,
 			);
 			path = WeightControl;
+			sourceTree = "<group>";
+		};
+		C47318D120BB3D3F00FA8C0D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C47318D220BB3D5500FA8C0D /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		C47318D320BB3D6100FA8C0D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C43864FD20B9610B00A3E303 /* WeightCell.swift */,
+				C43864FE20B9610B00A3E303 /* WeightCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C47318D420BB3D6800FA8C0D /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C438650120B9623700A3E303 /* CollectionViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		C47318D520BB3D8900FA8C0D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C41D443A20AF6F47006F26F5 /* LaunchScreen.storyboard */,
+				C41D443520AF6F39006F26F5 /* Main.storyboard */,
+				C41D443820AF6F47006F26F5 /* Assets.xcassets */,
+				C41D443D20AF6F47006F26F5 /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		FA6F82DA2C43B350DB54A495 /* Pods */ = {
