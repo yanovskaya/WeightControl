@@ -12,25 +12,25 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="WeightCell" customModule="WeightControl" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="335" height="67"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WeightCell" id="gTV-IL-0wX" customClass="WeightCell" customModule="WeightControl" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="335" height="70"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="335" height="67"/>
+                <rect key="frame" x="0.0" y="0.0" width="335" height="70"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n67-Q5-CYo" userLabel="Content View">
-                        <rect key="frame" x="0.0" y="0.0" width="335" height="67"/>
+                        <rect key="frame" x="0.0" y="0.0" width="335" height="70"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09k-95-vvP">
-                                <rect key="frame" x="8" y="23" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="8" y="23" width="50.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WS2-Gm-RxE">
-                                <rect key="frame" x="285" y="23" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="280.5" y="23.5" width="46.5" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -40,7 +40,6 @@
                             <constraint firstItem="WS2-Gm-RxE" firstAttribute="centerY" secondItem="09k-95-vvP" secondAttribute="centerY" id="CWE-gM-Q1i"/>
                             <constraint firstAttribute="trailing" secondItem="WS2-Gm-RxE" secondAttribute="trailing" constant="8" id="CaJ-9L-LQD"/>
                             <constraint firstItem="09k-95-vvP" firstAttribute="leading" secondItem="n67-Q5-CYo" secondAttribute="leading" constant="8" id="GK5-Lz-Rnt"/>
-                            <constraint firstAttribute="bottom" secondItem="09k-95-vvP" secondAttribute="bottom" priority="999" constant="23" id="NCd-Fk-Yzy"/>
                             <constraint firstItem="09k-95-vvP" firstAttribute="top" secondItem="n67-Q5-CYo" secondAttribute="top" constant="23" id="yLF-JF-dzM"/>
                         </constraints>
                     </view>
@@ -53,8 +52,11 @@
                 <constraint firstAttribute="trailing" secondItem="n67-Q5-CYo" secondAttribute="trailing" id="oH2-jz-mye"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="335" height="67"/>
-            <point key="canvasLocation" x="99.5" y="62.5"/>
+            <size key="customSize" width="335" height="70"/>
+            <connections>
+                <outlet property="view" destination="n67-Q5-CYo" id="fLl-aw-aru"/>
+            </connections>
+            <point key="canvasLocation" x="99.5" y="64"/>
         </collectionViewCell>
     </objects>
 </document>

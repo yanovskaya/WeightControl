@@ -9,10 +9,17 @@
 import UIKit
 
 class WeightCell: UICollectionViewCell {
-
+    
+    // MARK: - IBOutlets
+    
+    @IBOutlet weak var view: UIView!
+    
+    // MARK: - View lifecycle
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        view.backgroundColor = UIColor.white.withAlphaComponent(0.9)
     }
 
 }
