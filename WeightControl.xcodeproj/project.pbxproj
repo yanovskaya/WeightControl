@@ -18,6 +18,7 @@
 		C47318D920BB3E5C00FA8C0D /* WeigthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47318D820BB3E5C00FA8C0D /* WeigthViewModel.swift */; };
 		C47318DE20BB6B3200FA8C0D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47318DD20BB6B3200FA8C0D /* Colors.swift */; };
 		C47318E220BB6E7D00FA8C0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C47318E120BB6E7D00FA8C0D /* Main.storyboard */; };
+		C47318E520BD7A0000FA8C0D /* Weight.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C47318E320BD7A0000FA8C0D /* Weight.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		C47318D820BB3E5C00FA8C0D /* WeigthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeigthViewModel.swift; sourceTree = "<group>"; };
 		C47318DD20BB6B3200FA8C0D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		C47318E120BB6E7D00FA8C0D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C47318E420BD7A0000FA8C0D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		E0CF228EF15B225A7D248E2F /* Pods_WeightControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeightControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC4305E4042577DD0D676672 /* Pods-WeightControl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeightControl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeightControl/Pods-WeightControl.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,6 +96,7 @@
 		C47318D120BB3D3F00FA8C0D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C47318E320BD7A0000FA8C0D /* Weight.xcdatamodeld */,
 				C47318D620BB3E1200FA8C0D /* Weight.swift */,
 			);
 			path = Model;
@@ -263,6 +266,7 @@
 				C47318D920BB3E5C00FA8C0D /* WeigthViewModel.swift in Sources */,
 				C47318DE20BB6B3200FA8C0D /* Colors.swift in Sources */,
 				C438650220B9623700A3E303 /* CollectionViewController.swift in Sources */,
+				C47318E520BD7A0000FA8C0D /* Weight.xcdatamodeld in Sources */,
 				C43864FF20B9610B00A3E303 /* WeightCell.swift in Sources */,
 				C41D443220AF6F39006F26F5 /* AppDelegate.swift in Sources */,
 				C47318D720BB3E1200FA8C0D /* Weight.swift in Sources */,
@@ -457,6 +461,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C47318E320BD7A0000FA8C0D /* Weight.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C47318E420BD7A0000FA8C0D /* Model.xcdatamodel */,
+			);
+			currentVersion = C47318E420BD7A0000FA8C0D /* Model.xcdatamodel */;
+			path = Weight.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C41D442620AF6F39006F26F5 /* Project object */;
 }

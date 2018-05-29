@@ -6,6 +6,7 @@
 //  Copyright © 2018 Elena Yanovskaya. All rights reserved.
 //
 
+import CoreData
 import UIKit
 
 class CollectionViewController: UICollectionViewController {
@@ -19,9 +20,8 @@ class CollectionViewController: UICollectionViewController {
     
     private enum LayoutConstants {
         static let leadingMargin: CGFloat = 8
-        static let topEdge: CGFloat = 10
-        static let bottomEdge: CGFloat = 15
-        static let cellSpacing: CGFloat = 5
+        static let verticalEdge: CGFloat = 10
+        static let cellSpacing: CGFloat = 10
         static let cellHeight: CGFloat = 64
     }
     
@@ -35,6 +35,25 @@ class CollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         title = Constants.title
         configureCollectionView()
+
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "WeightEntity")
+        request.returnsObjectsAsFaults = false
+        
+        do {
+            let result = try context.fetch(request)
+            for data in result as! [NSManagedObject] {
+                let weight = data.value(forKey: "weight") as! String
+                let date = data.value(forKey: "date") as! Date
+                let model = Weight(weight: weight, date: date)
+                let viewModel = WeightViewModel(model: model)
+                viewModels.insert(viewModel, at: 0)
+            }
+            collectionView?.reloadData()
+        } catch {
+            print("Failed")
+        }
     }
     
     // MARK: - Private Methods
@@ -52,6 +71,23 @@ class CollectionViewController: UICollectionViewController {
         let viewModel = WeightViewModel(model: model)
         viewModels.insert(viewModel, at: 0)
         collectionView?.reloadData()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let entity = NSEntityDescription.entity(forEntityName: "WeightEntity", in: context)
+        let newWeight = NSManagedObject(entity: entity!, insertInto: context)
+        
+        
+        newWeight.setValue(model.weight, forKey: "weight")
+        newWeight.setValue(model.date, forKey: "date")
+        
+        do {
+            try context.save()
+            
+        } catch {
+            
+            print("Failed saving")
+        }
     }
     
     private func editWeigth(_ newWeight: String, index: Int) {
@@ -143,7 +179,7 @@ class CollectionViewController: UICollectionViewController {
 extension CollectionViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: LayoutConstants.topEdge, left: 0, bottom: LayoutConstants.bottomEdge, right: 0)
+        return UIEdgeInsets(top: LayoutConstants.verticalEdge, left: 0, bottom: LayoutConstants.verticalEdge, right: 0)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
