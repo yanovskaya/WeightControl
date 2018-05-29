@@ -14,6 +14,12 @@ class CollectionViewController: UICollectionViewController {
     
     private enum Constants {
         static let title = "Мой вес"
+        static let alertTitle = "Ваш вес"
+        static let saveAction = "Сохранить"
+        static let editAction = "Изменить"
+        static let deleteAction = "Удалить"
+        static let cancelAction = "Отмена"
+        static let defaultText = "45.0"
         static let cellIdentifier = String(describing: WeightCell.self)
     }
     
@@ -35,9 +41,6 @@ class CollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         title = Constants.title
         configureCollectionView()
-        
-        viewModels = coreData.fetchWeightViewModels()
-        collectionView?.reloadData()
     }
     
     // MARK: - Private Methods
@@ -48,6 +51,9 @@ class CollectionViewController: UICollectionViewController {
         guard let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         flowLayout.itemSize.width = view.frame.width - LayoutConstants.leadingMargin
         flowLayout.itemSize.height = LayoutConstants.cellHeight
+        
+        viewModels = coreData.fetchWeightViewModels()
+        collectionView?.reloadData()
     }
     
     private func saveNewWeight(_ weight: String) {
@@ -56,6 +62,7 @@ class CollectionViewController: UICollectionViewController {
         let viewModel = WeightViewModel(model: model)
         viewModels.insert(viewModel, at: 0)
         collectionView?.reloadData()
+        
         coreData.storeNewWeight(weight, date: date)
     }
     
@@ -64,18 +71,26 @@ class CollectionViewController: UICollectionViewController {
         collectionView?.reloadData()
         
         let coreDataIndex = viewModels.count - index - 1
-        coreData.updateWeigth(newWeight, index: index)
+        coreData.updateWeigth(newWeight, index: coreDataIndex)
+    }
+    
+    private func deleteWeight(index: Int) {
+        viewModels.remove(at: index)
+        collectionView?.reloadData()
+        
+        let coreDataIndex = viewModels.count - index
+        coreData.removeWeight(at: coreDataIndex)
     }
     
     private func presentAddWeightAlert() {
-        let alert = UIAlertController(title: "Ваш вес", message: "", preferredStyle: UIAlertControllerStyle.alert)
-        let action = UIAlertAction(title: "Сохранить", style: .default) { _ in
+        let alert = UIAlertController(title: Constants.alertTitle, message: "", preferredStyle: UIAlertControllerStyle.alert)
+        let action = UIAlertAction(title: Constants.saveAction, style: .default) { _ in
             if let text = alert.textFields![0].text, text != "" {
                 self.saveNewWeight(text)
             }
         }
         alert.addTextField { textField in
-            textField.placeholder = "45.0"
+            textField.placeholder = Constants.defaultText
             textField.font = UIFont.boldSystemFont(ofSize: 18)
             textField.textAlignment = .center
         }
@@ -85,8 +100,8 @@ class CollectionViewController: UICollectionViewController {
     
     private func presentEditWeightAlert(index: Int) {
         let oldValue = viewModels[index].weight
-        let alert = UIAlertController(title: "Ваш вес", message: "", preferredStyle: UIAlertControllerStyle.alert)
-        let action = UIAlertAction(title: "Сохранить", style: .default) { _ in
+        let alert = UIAlertController(title: Constants.alertTitle, message: "", preferredStyle: UIAlertControllerStyle.alert)
+        let action = UIAlertAction(title: Constants.saveAction, style: .default) { _ in
             if let text = alert.textFields![0].text, text != "", text != oldValue {
                 self.editWeigth(text, index: index)
             }
@@ -122,18 +137,13 @@ class CollectionViewController: UICollectionViewController {
     
     private func changeCell(row: Int) {
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let editAction = UIAlertAction(title: "Изменить", style: .default) { _ in
+        let editAction = UIAlertAction(title: Constants.editAction, style: .default) { _ in
             self.presentEditWeightAlert(index: row)
         }
-        let deleteAction = UIAlertAction(title: "Удалить", style: .destructive) { _ in
-            
-            let coreDataIndex = self.viewModels.count-row-1
-            self.coreData.removeWeight(at: coreDataIndex)
-            
-            self.viewModels.remove(at: row)
-            self.collectionView?.reloadData()
+        let deleteAction = UIAlertAction(title: Constants.deleteAction, style: .destructive) { _ in
+            self.deleteWeight(index: row)
         }
-        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel)
+        let cancelAction = UIAlertAction(title: Constants.cancelAction, style: .cancel)
 
         alertController.addAction(editAction)
         alertController.addAction(deleteAction)
