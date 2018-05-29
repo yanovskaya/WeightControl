@@ -19,6 +19,7 @@
 		C47318DE20BB6B3200FA8C0D /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47318DD20BB6B3200FA8C0D /* Colors.swift */; };
 		C47318E220BB6E7D00FA8C0D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C47318E120BB6E7D00FA8C0D /* Main.storyboard */; };
 		C47318E520BD7A0000FA8C0D /* Weight.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C47318E320BD7A0000FA8C0D /* Weight.xcdatamodeld */; };
+		C47318E820BD888100FA8C0D /* CoreDataWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47318E720BD888100FA8C0D /* CoreDataWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		C47318DD20BB6B3200FA8C0D /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		C47318E120BB6E7D00FA8C0D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C47318E420BD7A0000FA8C0D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		C47318E720BD888100FA8C0D /* CoreDataWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataWrapper.swift; sourceTree = "<group>"; };
 		E0CF228EF15B225A7D248E2F /* Pods_WeightControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeightControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC4305E4042577DD0D676672 /* Pods-WeightControl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeightControl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeightControl/Pods-WeightControl.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +87,7 @@
 				C47318D220BB3D5500FA8C0D /* View Model */,
 				C47318D320BB3D6100FA8C0D /* View */,
 				C47318D420BB3D6800FA8C0D /* View Controller */,
+				C47318E620BD886A00FA8C0D /* Helpers */,
 				C47318DC20BB6B0000FA8C0D /* Resources */,
 				C47318D520BB3D8900FA8C0D /* Supporting Files */,
 				C47318E120BB6E7D00FA8C0D /* Main.storyboard */,
@@ -143,6 +146,14 @@
 				C41D443820AF6F47006F26F5 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		C47318E620BD886A00FA8C0D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C47318E720BD888100FA8C0D /* CoreDataWrapper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		FA6F82DA2C43B350DB54A495 /* Pods */ = {
@@ -267,6 +278,7 @@
 				C47318DE20BB6B3200FA8C0D /* Colors.swift in Sources */,
 				C438650220B9623700A3E303 /* CollectionViewController.swift in Sources */,
 				C47318E520BD7A0000FA8C0D /* Weight.xcdatamodeld in Sources */,
+				C47318E820BD888100FA8C0D /* CoreDataWrapper.swift in Sources */,
 				C43864FF20B9610B00A3E303 /* WeightCell.swift in Sources */,
 				C41D443220AF6F39006F26F5 /* AppDelegate.swift in Sources */,
 				C47318D720BB3E1200FA8C0D /* Weight.swift in Sources */,

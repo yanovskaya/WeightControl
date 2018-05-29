@@ -6,7 +6,6 @@
 //  Copyright © 2018 Elena Yanovskaya. All rights reserved.
 //
 
-import CoreData
 import UIKit
 
 class CollectionViewController: UICollectionViewController {
@@ -28,6 +27,7 @@ class CollectionViewController: UICollectionViewController {
     // MARK: - Private Properties
     
     private var viewModels = [WeightViewModel]()
+    private let coreData = CoreDataWrapper()
     
     // MARK: - ViewController lifecycle
 
@@ -35,23 +35,9 @@ class CollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         title = Constants.title
         configureCollectionView()
-
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "WeightEntity")
-        request.returnsObjectsAsFaults = false
         
-        do {
-            let result = try? context.fetch(request)
-            for data in result as! [NSManagedObject] {
-                let weight = data.value(forKey: "weight") as! String
-                let date = data.value(forKey: "date") as! Date
-                let model = Weight(weight: weight, date: date)
-                let viewModel = WeightViewModel(model: model)
-                viewModels.insert(viewModel, at: 0)
-            }
-            collectionView?.reloadData()
-        }
+        viewModels = coreData.fetchWeightViewModels()
+        collectionView?.reloadData()
     }
     
     // MARK: - Private Methods
@@ -65,43 +51,20 @@ class CollectionViewController: UICollectionViewController {
     }
     
     private func saveNewWeight(_ weight: String) {
-        let model = Weight(weight: weight, date: Date())
+        let date = Date()
+        let model = Weight(weight: weight, date: date)
         let viewModel = WeightViewModel(model: model)
         viewModels.insert(viewModel, at: 0)
         collectionView?.reloadData()
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let entity = NSEntityDescription.entity(forEntityName: "WeightEntity", in: context)
-        let newWeight = NSManagedObject(entity: entity!, insertInto: context)
-        
-        
-        newWeight.setValue(model.weight, forKey: "weight")
-        newWeight.setValue(model.date, forKey: "date")
-        
-        do {
-            try? context.save()
-            
-        }
+        coreData.storeNewWeight(weight, date: date)
     }
     
     private func editWeigth(_ newWeight: String, index: Int) {
         viewModels[index].editWeight(with: newWeight)
         collectionView?.reloadData()
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "WeightEntity")
-
-        do {
-            guard let results = try? context.fetch(fetchRequest) as! [NSManagedObject] else { return }
-                results[viewModels.count-index-1].setValue(newWeight, forKey: "weight")
-        }
-        
-        do {
-            try? context.save()
-        }
-        
+        let coreDataIndex = viewModels.count - index - 1
+        coreData.updateWeigth(newWeight, index: index)
     }
     
     private func presentAddWeightAlert() {
@@ -164,18 +127,9 @@ class CollectionViewController: UICollectionViewController {
         }
         let deleteAction = UIAlertAction(title: "Удалить", style: .destructive) { _ in
             
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let context = appDelegate.persistentContainer.viewContext
-            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "WeightEntity")
+            let coreDataIndex = self.viewModels.count-row-1
+            self.coreData.removeWeight(at: coreDataIndex)
             
-            do {
-                guard let results = try? context.fetch(fetchRequest) as! [NSManagedObject] else { return }
-                context.delete(results[self.viewModels.count-row-1])
-            }
-            
-            do {
-                try? context.save()
-            }
             self.viewModels.remove(at: row)
             self.collectionView?.reloadData()
         }
