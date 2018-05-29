@@ -42,7 +42,7 @@ class CollectionViewController: UICollectionViewController {
         request.returnsObjectsAsFaults = false
         
         do {
-            let result = try context.fetch(request)
+            let result = try? context.fetch(request)
             for data in result as! [NSManagedObject] {
                 let weight = data.value(forKey: "weight") as! String
                 let date = data.value(forKey: "date") as! Date
@@ -51,8 +51,6 @@ class CollectionViewController: UICollectionViewController {
                 viewModels.insert(viewModel, at: 0)
             }
             collectionView?.reloadData()
-        } catch {
-            print("Failed")
         }
     }
     
@@ -82,17 +80,28 @@ class CollectionViewController: UICollectionViewController {
         newWeight.setValue(model.date, forKey: "date")
         
         do {
-            try context.save()
+            try? context.save()
             
-        } catch {
-            
-            print("Failed saving")
         }
     }
     
     private func editWeigth(_ newWeight: String, index: Int) {
         viewModels[index].editWeight(with: newWeight)
         collectionView?.reloadData()
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "WeightEntity")
+
+        do {
+            guard let results = try? context.fetch(fetchRequest) as! [NSManagedObject] else { return }
+                results[viewModels.count-index-1].setValue(newWeight, forKey: "weight")
+        }
+        
+        do {
+            try? context.save()
+        }
+        
     }
     
     private func presentAddWeightAlert() {
