@@ -163,6 +163,19 @@ class CollectionViewController: UICollectionViewController {
             self.presentEditWeightAlert(index: row)
         }
         let deleteAction = UIAlertAction(title: "Удалить", style: .destructive) { _ in
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let context = appDelegate.persistentContainer.viewContext
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "WeightEntity")
+            
+            do {
+                guard let results = try? context.fetch(fetchRequest) as! [NSManagedObject] else { return }
+                context.delete(results[self.viewModels.count-row-1])
+            }
+            
+            do {
+                try? context.save()
+            }
             self.viewModels.remove(at: row)
             self.collectionView?.reloadData()
         }
