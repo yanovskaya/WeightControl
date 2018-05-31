@@ -34,6 +34,10 @@ class CoreDataWrapper {
         return persistentContainer.viewContext
     }()
     
+    lazy private var entity: NSEntityDescription? = {
+        return NSEntityDescription.entity(forEntityName: Constants.entity, in: context)
+    }()
+    
     private var objects: [NSManagedObject]? {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: Constants.entity)
         if let objects = try? context.fetch(request) as? [NSManagedObject] {
@@ -43,28 +47,22 @@ class CoreDataWrapper {
         }
     }
     
-    lazy private var entity: NSEntityDescription? = {
-        return NSEntityDescription.entity(forEntityName: Constants.entity, in: context)
-    }()
-    
     // MARK: - Public Methods
     
-    func fetchWeightViewModels() -> [WeightViewModel] {
-        var viewModels = [WeightViewModel]()
+    func fetchWeights() -> [Weight] {
+        var weights = [Weight]()
         do {
             guard let objects = objects else {
-                let emptyArray = [WeightViewModel]()
-                return emptyArray
+                return weights
             }
             for object in objects {
                 guard let weight = object.value(forKey: Keys.weight) as? String,
-                    let date = object.value(forKey: Keys.date) as? Date else { return viewModels }
+                    let date = object.value(forKey: Keys.date) as? Date else { return weights }
                 let model = Weight(weight: weight, date: date)
-                let viewModel = WeightViewModel(model: model)
-                viewModels.insert(viewModel, at: 0)
+                weights.insert(model, at: 0)
             }
         }
-        return viewModels
+        return weights
     }
     
     func storeNewWeight(_ weight: String, date: Date) {

@@ -52,7 +52,11 @@ class CollectionViewController: UICollectionViewController {
         flowLayout.itemSize.width = view.frame.width - LayoutConstants.leadingMargin
         flowLayout.itemSize.height = LayoutConstants.cellHeight
         
-        viewModels = coreData.fetchWeightViewModels()
+        fetchStoredWeights()
+    }
+    
+    private func fetchStoredWeights() {
+        viewModels = coreData.fetchWeights().compactMap { WeightViewModel(model: $0) }
         collectionView?.reloadData()
     }
     
